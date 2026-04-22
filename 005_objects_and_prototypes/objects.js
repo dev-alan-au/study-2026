@@ -68,9 +68,13 @@ console.log(Object.values(obj9)) // [ 'Gary', 42, true ]
 const getNamesBeginningWithA = (obj) => obj.name[0] === 'A' ? 'Begins with A' : 'Does not begin with A';
 console.log(Object.groupBy([obj1, obj2, obj3], getNamesBeginningWithA));
 
+Object.defineProperty(obj9, 'hiddenFromLoop', {enumerable: false})
+
 // Looping
 // For..of (for values) will not work as object is not iterable
 // For..in for keys
 for (let i in obj9) {
   console.log(i);
 }
+
+console.log(Object.getOwnPropertyNames(obj9));
